@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.9.10\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.9.10\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E9A17DFE-6FFF-4D2F-9182-0153A07E0DA4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThiKetThucHanhMVC</RootNamespace>
+    <AssemblyName>ThiKetThucHanhMVC</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44367</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ProductsTypeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBConnect.cs" />
+    <Compile Include="Models\LoaiSanPham.cs" />
+    <Compile Include="Models\SanPham.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\plugins\animate.min.css" />
+    <Content Include="Assets\css\plugins\bootstrap.min.css" />
+    <Content Include="Assets\css\plugins\ion.rangeSlider.min.css" />
+    <Content Include="Assets\css\plugins\magnific-popup.css" />
+    <Content Include="Assets\css\plugins\slick-theme.css" />
+    <Content Include="Assets\css\plugins\slick.css" />
+    <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\fonts\flaticon\flaticon.css" />
+    <Content Include="Assets\fonts\flaticon\Flaticon.svg" />
+    <Content Include="Assets\fonts\font-awesome\css\all.min.css" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-brands-400.svg" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-regular-400.svg" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-solid-900.svg" />
+    <Content Include="Assets\img\404.jpg" />
+    <Content Include="Assets\img\about.jpg" />
+    <Content Include="Assets\img\about2.png" />
+    <Content Include="Assets\img\android.png" />
+    <Content Include="Assets\img\auth.jpg" />
+    <Content Include="Assets\img\banner.png" />
+    <Content Include="Assets\img\banner\1.jpg" />
+    <Content Include="Assets\img\banner\2.jpg" />
+    <Content Include="Assets\img\bg.png" />
+    <Content Include="Assets\img\blog\1-lg.jpg" />
+    <Content Include="Assets\img\blog\1.jpg" />
+    <Content Include="Assets\img\blog\10.jpg" />
+    <Content Include="Assets\img\blog\11.jpg" />
+    <Content Include="Assets\img\blog\12.jpg" />
+    <Content Include="Assets\img\blog\2-lg.jpg" />
+    <Content Include="Assets\img\blog\2.jpg" />
+    <Content Include="Assets\img\blog\3.jpg" />
+    <Content Include="Assets\img\blog\4.jpg" />
+    <Content Include="Assets\img\blog\5.jpg" />
+    <Content Include="Assets\img\blog\6.jpg" />
+    <Content Include="Assets\img\blog\7.jpg" />
+    <Content Include="Assets\img\blog\8.jpg" />
+    <Content Include="Assets\img\blog\9.jpg" />
+    <Content Include="Assets\img\clients\1.png" />
+    <Content Include="Assets\img\clients\2.png" />
+    <Content Include="Assets\img\clients\3.png" />
+    <Content Include="Assets\img\clients\4.png" />
+    <Content Include="Assets\img\clients\5.png" />
+    <Content Include="Assets\img\clients\6.png" />
+    <Content Include="Assets\img\cta\1.jpg" />
+    <Content Include="Assets\img\cta\2.jpg" />
+    <Content Include="Assets\img\cta\3.jpg" />
+    <Content Include="Assets\img\cta\4.jpg" />
+    <Content Include="Assets\img\cta\5.jpg" />
+    <Content Include="Assets\img\ig\1.jpg" />
+    <Content Include="Assets\img\ig\2.jpg" />
+    <Content Include="Assets\img\ig\3.jpg" />
+    <Content Include="Assets\img\ig\4.jpg" />
+    <Content Include="Assets\img\ig\5.jpg" />
+    <Content Include="Assets\img\ig\6.jpg" />
+    <Content Include="Assets\img\ios.png" />
+    <Content Include="Assets\img\locations\1.jpg" />
+    <Content Include="Assets\img\locations\2.jpg" />
+    <Content Include="Assets\img\logo-light.png" />
+    <Content Include="Assets\img\logo.png" />
+    <Content Include="Assets\img\megamenu\1.jpg" />
+    <Content Include="Assets\img\megamenu\2.jpg" />
+    <Content Include="Assets\img\megamenu\3.jpg" />
+    <Content Include="Assets\img\MenuShop\CacLoaiDau\DauCuc.jpg" />
+    <Content Include="Assets\img\MenuShop\CacLoaiDau\DauDen.jpg" />
+    <Content Include="Assets\img\MenuShop\CacLoaiDau\DauDo.jpg" />
+    <Content Include="Assets\img\MenuShop\CacLoaiDau\DauGa.jpg" />
+    <Content Include="Assets\img\MenuShop\CacLoaiDau\DauHaLan.jpg" />
+    <Content Include="Assets\img\MenuShop\CacLoaiDau\DauNanh.jpg" />
+    <Content Include="Assets\img\MenuShop\CacLoaiDau\DauPhong.jpg" />
+    <Content Include="Assets\img\MenuShop\CacLoaiDau\DauXanh.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\BotOt.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\BotOtHanQuoc.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\ChamCheoTayBac.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\DuongCat.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\DuongDen.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\DuongHoaMai.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\DuongPhen.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\GiamGao.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\GiamRuou.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\GiamTao.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\GiamTrang.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\HatDoi.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\HatTieuden.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\HatTieuTrang.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\MacKhen.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\MuoiOMai.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\MuoiOtXanhNhaTrang.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\MuoiTieuPhuQuoc.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\MuoiTomTayNinh.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\MuoiVungVietNam.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\TieuHong.jpg" />
+    <Content Include="Assets\img\MenuShop\GiaVi\TieuXanh.jpg" />
+    <Content Include="Assets\img\MenuShop\HatKhoHatGiong\HanhNhan.jpg" />
+    <Content Include="Assets\img\MenuShop\HatKhoHatGiong\HatBi.jpg" />
+    <Content Include="Assets\img\MenuShop\HatKhoHatGiong\HatDeCuoi.jpg" />
+    <Content Include="Assets\img\MenuShop\HatKhoHatGiong\HatDieu.jpg" />
+    <Content Include="Assets\img\MenuShop\HatKhoHatGiong\HatHoDao.jpg" />
+    <Content Include="Assets\img\MenuShop\HatKhoHatGiong\HatHuongDuong.jpg" />
+    <Content Include="Assets\img\MenuShop\HatKhoHatGiong\HatMacca.jpg" />
+    <Content Include="Assets\img\MenuShop\HatKhoHatGiong\HatSen.jpg" />
+    <Content Include="Assets\img\MenuShop\HatKhoHatGiong\NhoKho.jpg" />
+    <Content Include="Assets\img\MenuShop\HatKhoHatGiong\QuaOcCho.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\GaoLut.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\GaoLutHuyetRong.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\GaoNepCaiHoaVang.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\GaoSuaMaiVang.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\GaoTamThaiBaoMinh.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\GaoTamXoan.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\HatMe.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\LuaMach.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\LuaMiNguyenChat.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\NepCam.jpg" />
+    <Content Include="Assets\img\MenuShop\NguCoc\YenMach.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\BapCai.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\BapCaiTim.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\BiNgo.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\CaChua.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\CaiBoXoi.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\CaiCauVong.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\CaiXoan_Kale.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\CuDen.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\MangTay.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\RauCaiThia.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\RauMamBrussels.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\RauNgot.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\SuHao.jpg" />
+    <Content Include="Assets\img\MenuShop\Rau\SupLo.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\Acai.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\AnhDao.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\Bo.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\Cam.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\Chanh.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\ChanhTay.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\Chuoi.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\DuaHau.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\Dudu.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\Kiwi.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\NhoMyNhanChi.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\NhoXanh.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\Tao.jpg" />
+    <Content Include="Assets\img\MenuShop\TraiCay\Xoai.jpg" />
+    <Content Include="Assets\img\people\1.jpg" />
+    <Content Include="Assets\img\people\2.jpg" />
+    <Content Include="Assets\img\people\3.jpg" />
+    <Content Include="Assets\img\people\4.jpg" />
+    <Content Include="Assets\img\products\1.png" />
+    <Content Include="Assets\img\products\10.png" />
+    <Content Include="Assets\img\products\11.png" />
+    <Content Include="Assets\img\products\12.png" />
+    <Content Include="Assets\img\products\13.png" />
+    <Content Include="Assets\img\products\14.png" />
+    <Content Include="Assets\img\products\15.png" />
+    <Content Include="Assets\img\products\2.png" />
+    <Content Include="Assets\img\products\3.png" />
+    <Content Include="Assets\img\products\4.png" />
+    <Content Include="Assets\img\products\5.png" />
+    <Content Include="Assets\img\products\6.png" />
+    <Content Include="Assets\img\products\7.png" />
+    <Content Include="Assets\img\products\8.png" />
+    <Content Include="Assets\img\products\9.png" />
+    <Content Include="Assets\img\Shoots\ADIDAS STANSMITH.jpg" />
+    <Content Include="Assets\img\Shoots\Balenciaga Speed Trainer.jpg" />
+    <Content Include="Assets\img\Shoots\Balenciaga Triple S.jpg" />
+    <Content Include="Assets\img\Shoots\Converse 1970s.jpg" />
+    <Content Include="Assets\img\Shoots\Converse Chuck Taylor All Star.jpg" />
+    <Content Include="Assets\img\Shoots\Converse Classic.jpg" />
+    <Content Include="Assets\img\Shoots\Converse Jack Purcell.jpg" />
+    <Content Include="Assets\img\Shoots\New Balance 574.jpg" />
+    <Content Include="Assets\img\Shoots\New Balance 576.jpg" />
+    <Content Include="Assets\img\Shoots\New Balance 577.jpg" />
+    <Content Include="Assets\img\Shoots\New Balance 996.jpg" />
+    <Content Include="Assets\img\Shoots\Nike Air Force 1.jpg" />
+    <Content Include="Assets\img\Shoots\Nike Air Max.jpg" />
+    <Content Include="Assets\img\Shoots\Nike Air TR 17.jpg" />
+    <Content Include="Assets\img\Shoots\Nike Flyknit.jpg" />
+    <Content Include="Assets\img\Shoots\Nike SF-AF1.jpg" />
+    <Content Include="Assets\img\Shoots\Nike Zoom.jpg" />
+    <Content Include="Assets\img\Shoots\Puma Cell Alien OG.jpg" />
+    <Content Include="Assets\img\Shoots\Puma Ember Trail.jpg" />
+    <Content Include="Assets\img\Shoots\Puma LQDCELL Omega Manga Cult.jpg" />
+    <Content Include="Assets\img\Shoots\ULTRA BOOST.jpg" />
+    <Content Include="Assets\img\Shoots\YEEZY.jpg" />
+    <Content Include="Assets\js\angularJsMain.js" />
+    <Content Include="Assets\js\main.js" />
+    <Content Include="Assets\js\plugins\bootstrap.min.js" />
+    <Content Include="Assets\js\plugins\imagesloaded.min.js" />
+    <Content Include="Assets\js\plugins\ion.rangeSlider.min.js" />
+    <Content Include="Assets\js\plugins\isotope.pkgd.min.js" />
+    <Content Include="Assets\js\plugins\jquery-3.4.1.min.js" />
+    <Content Include="Assets\js\plugins\jquery.countdown.min.js" />
+    <Content Include="Assets\js\plugins\jquery.magnific-popup.min.js" />
+    <Content Include="Assets\js\plugins\jquery.slimScroll.min.js" />
+    <Content Include="Assets\js\plugins\jquery.steps.min.js" />
+    <Content Include="Assets\js\plugins\jquery.zoom.min.js" />
+    <Content Include="Assets\js\plugins\popper.min.js" />
+    <Content Include="Assets\js\plugins\slick.min.js" />
+    <Content Include="Assets\js\plugins\waypoint.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DataBaseSQL.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Assets\fonts\flaticon\Flaticon.eot" />
+    <Content Include="Assets\fonts\flaticon\Flaticon.ttf" />
+    <Content Include="Assets\fonts\flaticon\Flaticon.woff" />
+    <Content Include="Assets\fonts\flaticon\Flaticon.woff2" />
+    <Content Include="Assets\fonts\flaticon\Flaticond41d.eot" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-brands-400.eot" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-brands-400.woff" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-brands-400d41d.eot" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-regular-400.eot" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-regular-400.woff" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-regular-400d41d.eot" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-solid-900.eot" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-solid-900.woff" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="Assets\fonts\font-awesome\webfonts\fa-solid-900d41d.eot" />
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\DataBaseSQL.txt" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_MenuNav.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
+    <Content Include="Views\Shared\_BottomHeader.cshtml" />
+    <Content Include="Views\Products\ViewLoaiSanPham.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\ProductsType\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60627</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44367/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.9.10\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.9.10\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.9.10\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.9.10\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.9.10\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.9.10\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,26 @@
+﻿
+    <div class="andro_header-bottom"ng-controller="getAllLSP" >
+        <div class="container">
+
+            <div class="andro_header-bottom-inner">
+
+                <!-- Menu -->
+                <ul class="navbar-nav" ng-repeat="i in GetResultsLSP">
+                    <li class="menu-item menu-item-has-children">
+                        <a href="/Products/ViewLoaiSanPham#!?loai={{i.MaLoaiSanPham}}">{{i.TenLoaiSanPham}}</a>
+                        
+                    </li>
+                    
+                </ul>
+
+                <!-- Side navigation toggle -->
+                <div class="aside-toggler aside-trigger-right desktop-toggler">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>

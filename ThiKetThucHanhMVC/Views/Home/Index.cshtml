@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row masonry" ng-controller="getAllSP">
+
+    <!-- Product Start -->
+    <div class="col-sm-6 masonry-item" ng-repeat="i in GetResultsSP">
+        <div class="andro_product">
+            <div class="andro_product-badge andro_badge-featured">
+                <i class="fa fa-star"></i>
+                <span>Products</span>
+            </div>
+            <div class="andro_product-thumb">
+                <a href="product-single.html"><img src="~/Assets/img/Shoots/{{i.HinhAnh}}" alt="product"></a>
+            </div>
+            <div class="andro_product-body">
+                <h5 class="andro_product-title"> <a href=""> {{i.TenSanPham}} </a> </h5>
+                <p>{{i.MoTa}}</p>
+                <div class="andro_rating-wrapper">
+                    <div class="andro_rating">
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <span>4 Stars</span>
+                </div>
+            </div>
+            <div class="andro_product-footer">
+                <div class="andro_product-price">
+                    <span>{{i.GiaGiam}}</span>
+                    <span>{{i.GiaBan}}</span>
+                </div>
+                <div class="btn-group">
+                    <a href="product-single.html" class="andro_btn-custom btn-sm">Buy Now</a>
+                    <button type="button" class="andro_btn-custom dropdown-toggle dropdown-toggle-split btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#quickViewModal"> <i class="fa fa-eye"></i> Quick View</a>
+                        <a class="dropdown-item" href="#"> <i class="fa fa-sync"></i> Compare</a>
+                        <a class="dropdown-item" href="#"> <i class="fa fa-heart"></i> Add To Wishlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product End -->
+
+</div>

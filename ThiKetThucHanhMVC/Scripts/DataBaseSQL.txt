@@ -1,0 +1,206 @@
+﻿USE [master]
+GO
+/****** Object:  Database [DeThiKetBanGiayTheThao]    Script Date: 11/30/2020 8:01:42 PM ******/
+CREATE DATABASE [DeThiKetBanGiayTheThao]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'DeThiKetBanGiayTheThao', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\DeThiKetBanGiayTheThao.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'DeThiKetBanGiayTheThao_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\DeThiKetBanGiayTheThao_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [DeThiKetBanGiayTheThao].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET AUTO_CLOSE ON 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET  MULTI_USER 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET QUERY_STORE = OFF
+GO
+USE [DeThiKetBanGiayTheThao]
+GO
+/****** Object:  Table [dbo].[LoaiSanPham]    Script Date: 11/30/2020 8:01:42 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LoaiSanPham](
+	[MaLoaiSanPham] [nvarchar](20) NOT NULL,
+	[NameLoaiSanPham] [nvarchar](200) NULL,
+	[More] [nvarchar](500) NULL,
+ CONSTRAINT [PK_LoaiSanPham] PRIMARY KEY CLUSTERED 
+(
+	[MaLoaiSanPham] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SanPham]    Script Date: 11/30/2020 8:01:42 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SanPham](
+	[MaLoaiSanPham] [nvarchar](20) NULL,
+	[MaSanPham] [nvarchar](20) NOT NULL,
+	[TenSanPham] [nvarchar](200) NULL,
+	[HinhAnh] [nvarchar](300) NULL,
+	[GiaBan] [int] NULL,
+	[GiaGiam] [int] NULL,
+	[SoLuong] [int] NULL,
+	[MoTa] [nvarchar](500) NULL,
+ CONSTRAINT [PK_SanPham] PRIMARY KEY CLUSTERED 
+(
+	[MaSanPham] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[LoaiSanPham] ([MaLoaiSanPham], [NameLoaiSanPham], [More]) VALUES (N'LSP001', N'Nike', N'NULLNike là nhà cung cấp đồ thể thao hàng đầu trên thế giới. Thương hiệu với lịch sử hơn nửa thể kỷ này nổi tiếng với những mẫu giày thể thao cao cấp và ấn tượng. Từ lâu, Nike đã trở thành cái tên quen thuộc và là sự lựa chọn số một của các vận động viên bởi độ bền và sự thoải mái của nó.
+
+Nguồn : https://bloganchoi.com/thuong-hieu-giay-the-thao-noi-tieng-hot-nhat/ ')
+GO
+INSERT [dbo].[LoaiSanPham] ([MaLoaiSanPham], [NameLoaiSanPham], [More]) VALUES (N'LSP002', N'Adidas', N'Adidas là một trong hai thương hiệu chiếm lĩnh thị trường giày thể thao của thế giới và được coi là đối thủ cạnh tranh lớn nhất của Nike cho đến hiện tại. Hãng thể thao của Đức này thường xuyên cải thiện công nghệ nhằm cho ra đời những mẫu giày tốt và hiện đại nhất. Với phát kiến vật liệu nhẹ nhàng như lông vũ cùng công nghệ uốn cong rất độc đáo, Ultra Boost là thứ đã thay đổi cuộc chơi sneaker.
+
+Nguồn : https://bloganchoi.com/thuong-hieu-giay-the-thao-noi-tieng-hot-nhat/ ')
+GO
+INSERT [dbo].[LoaiSanPham] ([MaLoaiSanPham], [NameLoaiSanPham], [More]) VALUES (N'LSP003', N'Converse', N'Thật khó có thể tưởng tượng một hãng giày có thể tồn tại và phát triển trong hơn 100 năm mà vẫn giữ được phong độ của mình, nhưng Converse đã làm được điều đó. Ra đời vào năm 1917, từ một đôi giày chơi bóng rổ, Converse dần trở thành món đồ quen thuộc trong tủ đồ của mỗi người và là đôi giày bán chạy nhất trên toàn thế giới.
+
+Nguồn : https://bloganchoi.com/thuong-hieu-giay-the-thao-noi-tieng-hot-nhat/ ')
+GO
+INSERT [dbo].[LoaiSanPham] ([MaLoaiSanPham], [NameLoaiSanPham], [More]) VALUES (N'LSP004', N'Balenciaga', N'Năm 2018, làng thời trang đã chứng kiến sự đổ bộ của “cơn bão” Balenciaga sneakers với mở đầu là đôi “giày tất” lạ mắt và cá tính. Nhưng phải đến khi Balenciaga Triple S được trình làng, nhà mốt này mới chính thức tạo được dấu ấn riêng của mình. Đôi giày bị cho là “xấu xí” bỗng chốc trở thành món đồ được giới mộ điệu “săn lùng”.
+
+Nguồn : https://bloganchoi.com/thuong-hieu-giay-the-thao-noi-tieng-hot-nhat/ ')
+GO
+INSERT [dbo].[LoaiSanPham] ([MaLoaiSanPham], [NameLoaiSanPham], [More]) VALUES (N'LSP005', N'New Balance', N'Có thể không nổi tiếng như Nike, không thời thượng, hào nhoáng như Balenciaga nhưng thương hiệu đến từ Boston vẫn có được chỗ đứng nhất định trên thị trường bởi thiết kế vô cùng đơn giản nhưng luôn mang đến cảm giác êm ái và thoải mái cho người đi.
+
+Nguồn : https://bloganchoi.com/thuong-hieu-giay-the-thao-noi-tieng-hot-nhat/ ')
+GO
+INSERT [dbo].[LoaiSanPham] ([MaLoaiSanPham], [NameLoaiSanPham], [More]) VALUES (N'LSP006', N'Puma', N'Tuy không nổi đình nổi đám như Balenciaga nhưng Puma vẫn âm thầm tạo nên những tác phẩm mang nét riêng của mình mà vẫn tiếp cận được xu hướng đương thời. Ví dụ điển hình là việc nắm bắt xu thế chunky sneaker, Puma đã sáng tạo cho riêng họ một mẫu Dad sneaker không giống với bất kỳ đôi giày nào đang có trên thị trường.
+
+Nguồn : https://bloganchoi.com/thuong-hieu-giay-the-thao-noi-tieng-hot-nhat/ ')
+GO
+INSERT [dbo].[LoaiSanPham] ([MaLoaiSanPham], [NameLoaiSanPham], [More]) VALUES (N'LSP007', N'Vans', N'Có thể nói đây là cái tên được nhắc đến nhiều nhất trong năm 2018, từ nơi công sở cho đến ngoài đường phố, ta đều dễ dàng bắt gặp những bạn trẻ diện đôi giày với hai tông đen trắng kinh điển. Những mẫu giày của Vans hầu như có kiểu dáng không thay đổi theo năm tháng mà chỉ đổi mới ở cách kết hợp màu sắc và sử dụng họa tiết.
+
+Nguồn : https://bloganchoi.com/thuong-hieu-giay-the-thao-noi-tieng-hot-nhat/ ')
+GO
+INSERT [dbo].[LoaiSanPham] ([MaLoaiSanPham], [NameLoaiSanPham], [More]) VALUES (N'LSP008', N'Gucci', N'Được coi là tân binh mới trong cuộc đua giày sneaker nhưng hãng thời trang cao cấp này không hề tỏ ra lép vế trước những “đàn anh” dày dặn kinh nghiệm. Chỉ trong vài năm gần đây, Gucci đã có bước tiến lớn dưới bàn tay sáng tạo của Alessandro Michele khi cho trình làng mẫu giày với màu trắng trang nhã, nhấn nhá bằng những họa tiết thêu tay cầu kì, bắt mắt cùng logo xanh-đỏ đặc trưng
+
+Nguồn : https://bloganchoi.com/thuong-hieu-giay-the-thao-noi-tieng-hot-nhat/ ')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP001', N'SP001', N'Nike Air Max', N'Nike Air Max.jpg', 1645000, 1500000, 30, N'Bạn còn nhớ lần đầu tiên Nike Air Max xuất hiện trong giới thời trang đã gây ra chấn động thế nào không? Khi ấy người người đổ xô đi mua Nike Air Max khiến đôi giày này cháy hàng liên tục trong vài tháng đầu ra mắt. Không phải ngẫu nhiên mà em ý “chiếm sóng” toàn bộ thời gian đó.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP001', N'SP002', N'Nike Air Force 1', N'Nike Air Force 1.jpg', 5890000, 4000000, 25, N'Ra mắt lần đầu vào năm 1982, những tưởng Air Force chỉ hợp với dân nghiền thể thao. Nào ngờ làng thời trang lúc bấy giờ lại điêu đứng bởi chính thiết kế của chúng. Vừa thanh lịch lại khỏe khoắn, bảo sao không yêu cho được.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP001', N'SP003', N'Nike Zoom', N'Nike Zoom.jpg', 14896996, 13000000, 14, N'Thoạt nhìn Nike Zoom không có gì đặc biệt hay vượt trội hơn so với thế hệ đi trước. Song nếu ai đã từng sử dụng một lần đều không thể ngó lơ. Thậm chí nhiều người đã trở thành fan của Nike sau khi sở hữu Nike zoom')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP001', N'SP004', N'Nike Flyknit', N'Nike Flyknit.jpg', 9862000, 9000000, 26, N'Dòng giày Nike này được coi là chiến binh hùng mạnh nhất của nhà Nike. Nike Flyknit tích hợp hàng loạt công nghệ cao, tiên tiến hơn hẳn các mẫu giày trước đó. Công nghệ này giúp đôi giày ôm khít bàn chân tạo cảm giác tối đa khi sử dụng mà lại cực kỳ thoáng khí.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP001', N'SP005', N'Nike SF-AF1', N'Nike SF-AF1.jpg', 5922000, 5800000, 16, N'Nổi bật nhất trong list các loại giày Nike bán chạy nhất năm qua đó chính là Nike SF-AF1 “Desert Camo”. Tiếp nối những thành công của những phiên bản trước đó. Nhưng lần này Nike mang đến một kiểu dáng xuất sắc hơn rất nhiều.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP001', N'SP006', N'Nike Air TR 17', N'Nike Air TR 17.jpg', 9000000, 8700000, 24, N'Sở hữu vẻ ngoài hầm hố nhưng cũng rất thời trang của mình. Nhưng những gì mà Nike Air Tr17 mang lại cho người sử dụng thay vì cảm giác thô kệch lại chính là cảm giác êm ái nhờ vào bộ đệm Air full-lenght.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP002', N'SP007', N'ULTRA BOOST ', N'ULTRA BOOST .jpg', 5000000, 4800000, 14, N'Một cơn chấn động lớn từ Adidas VN được mang tên là Ultra Boost và trở thành đôi giày xuất sắc nhất trong lịch sử 70 năm qua của Adidas. Siêu phẩm giày chạy bộ này vừa được tung ra và đã khiến cho giới thời trang cũng như giới chạy bộ và thể thao phải ngước nhìn, đã làm mưa làm gió từ năm 2015 đến giờ vẫn còn rất nóng và không có dấu hiệu giảm nhiệt chút nào.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP002', N'SP008', N'YEEZY', N'YEEZY.jpg', 22500000, 21600000, 57, N'Cả thế giới phải điên đảo khi dòng giày Yeezy 350 boost này ra đời. Một đôi giày đã tạo nên cơn sốt cực kỳ khủng khiếp. Đôi giày cực kỳ độc đáo với thiết kế đơn giản  nhưng không hề đơn điệu tí nào, mang phong cách streetstyle, được làm bằng chất liệu cực nhẹ đế cực êm với những tông màu thời thượng chất lừ đã khiến cho nhiều bạn mê mẩn và ưa thích ngay từ lần đầu và sẵn sàng hạ gục các fan giày sneaker . ')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP002', N'SP009', N'ADIDAS STANSMITH ', N'ADIDAS STANSMITH .jpg', 2000000, 1800000, 19, N'Stansmith thực chất là một đôi giày quần vợt, được lấy tên từ một tay vợt nổi tiếng người Mỹ. Nhưng nhờ vào thiết kế đơn giản hóa, toàn bộ đôi giày lấy màu trắng làm màu chủ đạo cùng phối màu được nhận biết và với phác họa Stansmith ở lưỡi gà của mình, Stan Smith cũng nhanh chóng trở thành một hiện tượng ngay khi “ra đời” và cho đến tận bây giờ, nó vẫn được yêu thích vì sự đa dụng, dễ đi, dễ phối và hợp nhiều phong cách khác nhau.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP003', N'SP010', N'Converse Classic', N'Converse Classic.jpg', 3000000, 2900000, 23, N'Phiên bản giày classic gồm 6 màu cơ bản: đen, trắng, đỏ, xanh navy, full đen, kem và tất cả các phiên bản của giày này đều được yêu thích và được xem như là đôi giày “thanh xuân”, gắn bó với thời học sinh, sinh viên của rất nhiều người.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP003', N'SP011', N'Converse 1970s', N'Converse 1970s.jpg', 2000000, 1800000, 32, N'Là phiên bản cải tiến của Converse classic, Converse 1970s mang vẻ đẹp đơn giản, tinh tế của thời đại cũ và nét cứng cáp, cá tính của thời hiện đại. Tất cả đã tạo nên cú đột phá mạnh mẽ đủ để hâm nóng cho cái tên đã tồn tại hơn 100 năm qua – Converse.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP003', N'SP012', N'Converse Jack Purcell', N'Converse Jack Purcell.jpg', 2000000, 1900000, 56, N'Converse Jack Purcell được thiết kế dựa trên form giày Converse Classic kinh điển dành riêng cho những người chơi môn cầu lông và đặc biệt cái tên này xuất phát từ một danh thủ vô địch bộ môn cầu lông lúc bấy giờ.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP003', N'SP013', N'Converse Chuck Taylor All Star', N'Converse Chuck Taylor All Star.jpg', 2800000, 2750000, 54, N'Chắc chắn các bạn đều đã quá quen thuộc với đôi giày huyền thoại này rồi, giày All Star là một trong các dòng Converse đầu tiên mang phong cách cổ điển của hãng. Có thể nhận biết All Star dễ dàng thông qua phù hiệu Converse All Star và chữ ký của Chuck Taylor ở mắt cá chân.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP004', N'SP014', N'Balenciaga Speed Trainer
+', N'Balenciaga Speed Trainer
+.jpg', 13000000, 12500000, 12, N'Balenciaga Speed Trainer mang đến vẻ đẹp tinh tế nhất từ thiết kế tối giản. Lớp vải phần upper được dệt theo công nghệ knit đang rất phổ biến. Ngoài ra Balenciaga còn sử dụng vải Polyamide với tỷ lệ dệt cao hơn so với những đôi giày khác, giúp ôm sát bàn chân, giảm tối đa lượng mồ hôi chân, thoải mái khi di chuyển.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP004', N'SP015', N'Balenciaga Triple S', N'Balenciaga Triple S.jpg', 23500000, 23000000, 26, N'Balenciaga Triple S chính là hot item mới nhất của giới trẻ sành điệu.
+
+Được thiết kế theo phong cách dad shoe hầm hố, với phần đế to, cao uốn lượn đầy nghệ thuật.
+
+Balenciaga Triple S chính là sự pha trộn đặc sắc giữa thời trang, nghệ thuật và sự sáng tạo.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP005', N'SP016', N'New Balance 574', N'New Balance 574.jpg', 1400000, 1250000, 11, N'Đơn giản và giá cả phải chăng là điểm nổi bật của dòng giày New Balance 574. Đây được xem như là dòng giày có giá thấp nhất trong các dòng classic của New Balance. Hầu hết các phiên bản 574 được sản xuất ở châu Á, nhưng cũng có một số mẫu 574 với chất lượng tốt hơn, thiết kế đẹp hơn được sản xuất tại Mỹ và Anh, bao gồm cả phiên bản customize mà khách hàng có thể tự thiết kế trên trang web của New Balance.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP005', N'SP017', N'New Balance 576', N'New Balance 576.jpg', 2900000, 2800000, 13, N'Rất giống với dòng 574, 576 có thiết kế đẹp hơn và chất lượng cao hơn, vì nó hầu như chỉ được sản xuất tại các nhà máy của Anh và Mỹ. Một trong những điều đáng chú ý nhất của dòng 576 thời gian gần đây là hàng loạt các phiên bản màu sắc được thiết kế với sự hợp tác của Nordstrom, trong đó có phiên bản màu đỏ tươi mà các bạn nhìn thấy kế bên.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP005', N'SP018', N'New Balance 577', N'New Balance 577.jpg', 1500000, 1450000, 12, N'577 cũng có thiết kế tương tự các dòng giày New Balance nằm trong dòng 57x, nhưng có kiểu dáng đẹp và sắc xảo hơn. Được sản xuất gần như độc quyền bởi nhà máy Flimby, Anh quốc. Với chất lượng từ Anh quốc, bạn có thể yên tâm về chất lượng.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP005', N'SP019', N'New Balance 996', N'New Balance 996.jpg', 2000000, 1800000, 23, N'Một trong những dòng giày có thiết kế gọn gàng nhất trong tất cả các dòng giày của New Balance. NB 996 có kiểu dáng đẹp với chất liệu được sử dụng chủ yếu là da lộn cao cấp và lưới, thường có logo “N” phản quang. Trước đây được sản xuất chủ yếu tại nha máy ở Boston – Mỹ. Nhưng nay Trung Quốc và một số nước Đông Nam Á cũng là xưởng gia công cho dòng giày 996 này.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP006', N'SP020', N'Puma Ember Trail', N'Puma Ember Trail.jpg', 2000000, 1699000, 12, N'Nằm trong xu hướng giày sneaker 2020, giày Puma Ember Trail là một trong những sản phẩm thuộc dòng chunky nổi tiếng của nhà Puma. Đôi giày được thiết kế với kiểu dáng gồ ghề cùng khả năng sáng tạo màu sắc vô cùng nổi bật.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP006', N'SP021', N' Puma LQDCELL Omega Manga Cult', N'Puma LQDCELL Omega Manga Cult.jpg', 3750000, 3600000, 34, N'Mẫu giày được thiết kế với kiểu dáng hiện đại đầy nét cá tính, khả năng sáng tạo màu sắc đầy nổi bật được lấy cảm hứng từ những tác phẩm nghệ thuật manga nổi tiếng, Puma LQDCELL Omega Manga Cult là một trong những đôi giày sneaker theo phong cách chunky sneaker hiện đại mới nhất được đông đảo các tín đồ thời trang yêu thích.')
+GO
+INSERT [dbo].[SanPham] ([MaLoaiSanPham], [MaSanPham], [TenSanPham], [HinhAnh], [GiaBan], [GiaGiam], [SoLuong], [MoTa]) VALUES (N'LSP006', N'SP022', N'Puma Cell Alien OG', N'Puma Cell Alien OG.jpg', 3550000, 2000000, 12, N'Được ứng dụng công nghệ PUMA CELL xuất hiện lần đầu tiên vào năm 1998 kết hợp với thiết kế cá tính và màu sắc tươi mới cùng lớp đệm nhẹ tạo sự thoải mái,  giày Puma Cell Alien OG là một trong những đôi giày sneaker theo phong cách chunky sneaker mới nhất được nhiều tín đồ thời trang yêu thích của thương hiệu Puma.')
+GO
+ALTER TABLE [dbo].[SanPham]  WITH CHECK ADD  CONSTRAINT [FK_SanPham_LoaiSanPham] FOREIGN KEY([MaLoaiSanPham])
+REFERENCES [dbo].[LoaiSanPham] ([MaLoaiSanPham])
+GO
+ALTER TABLE [dbo].[SanPham] CHECK CONSTRAINT [FK_SanPham_LoaiSanPham]
+GO
+USE [master]
+GO
+ALTER DATABASE [DeThiKetBanGiayTheThao] SET  READ_WRITE 
+GO
